@@ -107,7 +107,11 @@ def get_pattern_weapons(manifest, bungie_account):
     for key,val in pattern_record_hashes_dict.items():
         
         # Get the current record from the user's list of records.
-        profile_record = profile_records[str(val)]
+        try:
+            profile_record = profile_records[str(val)]
+        except:
+            printf("Hit a snag")
+            continue
 
         # If the record looks like a weapon pattern...
         if (profile_record['objectives'][0]['completionValue']) in [2, 3, 4, 5]:
