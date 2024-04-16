@@ -1,5 +1,3 @@
-*.pickle
-pickles/*
 *manifest*
 *MANIFEST*
 bungieapi.json
