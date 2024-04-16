@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.1.0/jquery.min.js"></script>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery.devbridge-autocomplete/1.2.26/jquery.autocomplete.min.js"></script>
+  <style>
+	body {
+		background-image: url('https://i.pinimg.com/originals/5d/d7/51/5dd751fb9aca709bf78090db68f32cb9.jpg');
+		background-size: cover;
+	}
+
+    pageCenter {
+		position: absolute;
+		width: 300px;
+		height: 200px;
+		z-index: 15;
+		top: 30%;
+		left: 50%;
+		margin: -100px 0 0 -150px;
+		text-align: center;
+		line-height: 40px;
+		backdrop-filter: blur(5px);
+		padding: 50px;
+		border: 4px double black;
+	}
+	
+	textCenter {
+		backdrop-filter: blur(20px);
+		border: 1px double gray;
+		color: black;
+	}
+
+  </style>
+</head>
+
+
+<body>
+	
+	<pageCenter> 
+	  <form>
+	  	<textCenter>
+			Search your Bungie Account
+		</textCenter>
+		<input type="text" name="name" id="autocomplete1"/>
+
+		<script>
+		$('#autocomplete1').autocomplete({
+			serviceUrl: '/search/names',
+			dataType: 'json',
+			onSearchComplete: function (query, suggestions) {
+			  console.log(query);
+			}
+		});
+		</script>
+		<a href="localhost:5000/patterntracker/">
+		  <button type="submit" value="submit" onclick="get_bungie_account(accounts_query[query], accounts_query[query])"> Get Patterns </button>
+		</a>
+	  </form>
+	</pageCenter>
+</body>

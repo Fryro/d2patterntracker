@@ -1,0 +1,6 @@
+*.pickle
+pickles/*
+*manifest*
+*MANIFEST*
+bungieapi.json
+__pycache__/

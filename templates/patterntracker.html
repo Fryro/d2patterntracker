@@ -1,0 +1,402 @@
+<!DOCTYPE html>
+<head>
+  <style>
+	body {
+		background-image: url('https://i.pinimg.com/originals/5d/d7/51/5dd751fb9aca709bf78090db68f32cb9.jpg');
+		background-size: cover;
+	}
+
+    pageCenter {
+		position: absolute;
+		width: 1000px;
+		height: 500px;
+		z-index: 15;
+		top: 30%;
+		left: 25%;
+		margin: -100px 0 0 -150px;
+		text-align: center;
+		line-height: 40px;
+		backdrop-filter: blur(20px);
+		padding: 50px;
+		border: 4px double black;
+	}
+
+	.input-container {
+		position: absolute;
+		display: flex;
+	}
+
+	input {
+		position: absolute;
+		opacity: 0;
+		width: 0;
+		height: 0;
+	}
+
+	input:checked + span {
+		background-color: #000;
+		color: #fff;
+	}
+
+	span {
+		display: flex;
+		justify-content: center;
+		align-items: center;
+		width: 100px;
+		height: 80px;
+		border: 1px solid #000;
+		border-right: 0;
+		background-color: #fff;
+		cursor: pointer;
+		font-size: 12px;
+		line-height: 13px;
+	}
+
+	label:last-of-type span {
+		border-right: 1px solid #000;
+	}
+
+  </style>
+
+  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+  <script>
+	$(document).ready(function() {
+		$("input[name='weapontype']").click(function() {
+			if ($(this).attr('value') == "primary") {
+				$('#primaryweapons').fadeIn(400);
+				$('#primaryouter').fadeIn(400);
+			}
+			else {
+				$('#primaryweapons').fadeOut(200);
+				$('#primaryouter').fadeOut(200);
+			}
+			if ($(this).attr('value') == "special") {
+				$('#specialweapons').fadeIn(400);
+				$('#specialouter').fadeIn(400);
+			}
+			else {
+				$('#specialweapons').fadeOut(200);
+				$('#specialouter').fadeOut(200);
+			}
+			if ($(this).attr('value') == "heavy") {
+				$('#heavyweapons').fadeIn(400);
+				$('#heavyouter').fadeIn(400);
+			}
+			else {
+				$('#heavyweapons').fadeOut(200);
+				$('#heavyouter').fadeOut(200);
+			}
+		});
+	});
+  </script>
+  
+
+  <script>
+	$(document).ready(function() {
+		$("input[name='primaryweaponradios']").click(function() {
+			if ($(this).attr('value') == "Scout Rifle") {
+				$('#scoutrifles').fadeIn(400);
+			}
+			else {
+				$('#scoutrifles').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Pulse Rifle") {
+				$('#pulserifles').fadeIn(400);
+			}
+			else {
+				$('#pulserifles').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Auto Rifle") {
+				$('#autorifles').fadeIn(400);
+			}
+			else {
+				$('#autorifles').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Hand Cannon") {
+				$('#handcannons').fadeIn(400);
+			}
+			else {
+				$('#handcannons').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Sidearm") {
+				$('#sidearms').fadeIn(400);
+			}
+			else {
+				$('#sidearms').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Submachine Gun") {
+				$('#submachineguns').fadeIn(400);
+			}
+			else {
+				$('#submachineguns').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Combat Bow") {
+				$('#combatbows').fadeIn(400);
+			}
+			else {
+				$('#combatbows').fadeOut(200);
+			}
+		});
+	});
+  </script>
+
+
+  <script>
+	$(document).ready(function() {
+		$("input[name='specialweaponradios']").click(function() {
+			if ($(this).attr('value') == "Shotgun") {
+				$('#shotguns').fadeIn(400);
+			}
+			else {
+				$('#shotguns').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Sniper Rifle") {
+				$('#sniperrifles').fadeIn(400);
+			}
+			else {
+				$('#sniperrifles').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Fusion Rifle") {
+				$('#fusionrifles').fadeIn(400);
+			}
+			else {
+				$('#fusionrifles').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Grenade Launcher") {
+				$('#grenadelaunchers').fadeIn(400);
+			}
+			else {
+				$('#grenadelaunchers').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Trace Rifle") {
+				$('#tracerifles').fadeIn(400);
+			}
+			else {
+				$('#tracerifles').fadeOut(200);
+			}
+		});
+	});
+  </script>
+
+  
+  <script>
+	$(document).ready(function() {
+		$("input[name='heavyweaponradios']").click(function() {
+			if ($(this).attr('value') == "Linear Fusion Rifle") {
+				$('#linearfusionrifles').fadeIn(400);
+			}
+			else {
+				$('#linearfusionrifles').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Rocket Launcher") {
+				$('#rocketlaunchers').fadeIn(400);
+			}
+			else {
+				$('#rocketlaunchers').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Sword") {
+				$('#swords').fadeIn(400);
+			}
+			else {
+				$('#swords').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Grenade Launcher") {
+				$('#grenadelaunchers').fadeIn(400);
+			}
+			else {
+				$('#grenadelaunchers').fadeOut(200);
+			}
+			if ($(this).attr('value') == "Machine Gun") {
+				$('#machineguns').fadeIn(400);
+			}
+			else {
+				$('#machineguns').fadeOut(200);
+			}
+		});
+	});
+  </script>
+
+</head>
+
+
+<body>
+	<pageCenter> 
+		<div class="input-container" style="position:static; z-index: 10;">
+			<label>
+				<input type="radio" name="weapontype" value="primary" />
+				<span>Primary Weapons</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="weapontype" value="special" />
+				<span>Special Weapons</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="weapontype" value="heavy" />
+				<span>Heavy Weapons</span>
+			</label>
+			
+			<input type="radio" name="weapontype" value="NRT" style="display: none;" checked="checked" />
+		</div>	
+
+		<div class="input-container" id="primaryweapons" style="display: none; z-index: 9;">
+			<label>
+				<input type="radio" name="primaryweaponradios" value="Scout Rifle" />
+				<span>Scout Rifle</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="primaryweaponradios" value="Pulse Rifle" />
+				<span>Pulse Rifle</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="primaryweaponradios" value="Auto Rifle" />
+				<span>Auto Rifle</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="primaryweaponradios" value="Hand Cannon" />
+				<span>Hand Cannon</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="primaryweaponradios" value="Sidearm" />
+				<span>Sidearm</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="primaryweaponradios" value="Submachine Gun" />
+				<span>Submachine Gun</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="primaryweaponradios" value="Combat Bow" />
+				<span>Combat Bow</span>
+			</label>
+			
+			<input type="radio" name="primaryweaponradios" value="NRP" style="display: none;" checked="checked" />
+		</div>
+
+		<div class="input-container" id="specialweapons" style="display: none; z-index: 9;">
+			<label>
+				<input type="radio" name="specialweaponradios" value="Shotgun" />
+				<span>Shotgun</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="specialweaponradios" value="Sniper Rifle" />
+				<span>Sniper Rifle</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="specialweaponradios" value="Fusion Rifle" />
+				<span>Fusion Rifle</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="specialweaponradios" value="Grenade Launcher" />
+				<span>Grenade Launcher</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="specialweaponradios" value="Trace Rifle" />
+				<span>Trace Rifle</span>
+			</label>
+			
+			<input type="radio" name="specialweaponradios" value="NRS" style="display: none;" checked="checked" />
+		</div>
+
+		<div class="input-container" id="heavyweapons" style="display: none; z-index: 9;">	
+			<label>
+				<input type="radio" name="heavyweaponradios" value="Linear Fusion Rifle"/>
+				<span>Linear Fusion Rifle</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="heavyweaponradios" value="Rocket Launcher" />
+				<span>Rocket Launcher</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="heavyweaponradios" value="Sword" />
+				<span>Sword</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="heavyweaponradios" value="Grenade Launcher"/>
+				<span>Grenade Launcher</span>
+			</label>
+			
+			<label>
+				<input type="radio" name="heavyweaponradios" value="Machine Gun" />
+				<span>Machine Gun</span>
+			</label>
+			
+			<input type="radio" name="heavyweaponradios" value="NRH" style="display: none;" checked="checked" />
+
+		</div>
+
+		<div id="primaryouter" style="position: relative; z-index: 4;">
+			<div id="scoutrifles" style="display: none; z-index: 3">
+				{{ pwd["Scout Rifle"] }}
+			</div>
+			<div id="pulserifles" style="display: none; z-index: 3">
+				{{ pwd["Pulse Rifle"] }}
+			</div>
+			<div id="autorifles" style="display: none; z-index: 3">
+				{{ pwd["Auto Rifle"] }}
+			</div>
+			<div id="handcannons" style="display: none; z-index: 3">
+				{{ pwd["Hand Cannon"] }}
+			</div>
+			<div id="sidearms" style="display: none; z-index: 3">
+				{{ pwd["Sidearm"] }}
+			</div>
+			<div id="submachineguns" style="display: none; z-index: 3">
+				{{ pwd["Submachine Gun"] }}
+			</div>
+			<div id="combatbows" style="display: none; z-index: 3">
+				{{ pwd["Combat Bow"] }}
+			</div>
+		</div>
+
+		<div id="specialouter" style="position: relative; z-index: 4;">
+			<div id="shotguns" style="display: none; z-index: 3">
+				{{ pwd["Shotgun"] }}
+			</div>
+			<div id="sniperrifles" style="display: none; z-index: 3">
+				{{ pwd["Sniper Rifle"] }}
+			</div>
+			<div id="fusionrifles" style="display: none; z-index: 3">
+				{{ pwd["Fusion Rifle"] }}
+			</div>
+			<div id="grenadelaunchers" style="display: none; z-index: 3">
+				{{ pwd["Grenade Launcher"] }}
+			</div>
+			<div id="tracerifles" style="display: none; z-index: 3">
+				{{ pwd["Trace Rifle"] }}
+			</div>
+		</div>
+
+		<div id="heavyouter" style="position: relative; z-index: 4;">
+			<div id="linearfusionrifles" style="display: none; z-index: 3">
+				{{ pwd["Linear Fusion Rifle"] }}
+			</div>
+			<div id="rocketlaunchers" style="display: none; z-index: 3">
+				{{ pwd["Rocket Launcher"] }}
+			</div>
+			<div id="swords" style="display: none; z-index: 3">
+				{{ pwd["Sword"] }}
+			</div>
+			<div id="grenadelaunchers" style="display: none; z-index: 3">
+				{{ pwd["Grenade Launcher"] }}
+			</div>
+			<div id="machineguns" style="display: none; z-index: 3">
+				{{ pwd["Machine Gun"] }}
+			</div>
+		</div>
+	
+	</pageCenter>
+</body>
