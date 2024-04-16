@@ -110,7 +110,7 @@ def get_pattern_weapons(manifest, bungie_account):
         try:
             profile_record = profile_records[str(val)]
         except:
-            printf("Hit a snag")
+            print("Hit a snag")
             continue
 
         # If the record looks like a weapon pattern...
