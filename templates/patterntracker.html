@@ -7,7 +7,7 @@
 	}
 
     pageCenter {
-		position: absolute;
+		position: absolute; 
 		width: 1000px;
 		height: 500px;
 		z-index: 15;
@@ -19,8 +19,21 @@
 		backdrop-filter: blur(20px);
 		padding: 50px;
 		border: 4px double black;
+		justify-content: space-between;
 	}
 
+	weaponContainer {
+		margin-left: 140px;
+		position: relative;
+		width: 85%;
+		height: 10%;
+		text-align: center;
+		backdrop-filter: blur(20px);
+		border: 2px double yellow;
+		justify-content: space-between;
+		display: flex;
+	}
+	
 	.input-container {
 		position: absolute;
 		display: flex;
@@ -220,8 +233,8 @@
 
 
 <body>
-	<pageCenter> 
-		<div class="input-container" style="position:static; z-index: 10;">
+	<pageCenter>
+		<div class="input-container" style="z-index: 10; display: block; height: 50%;">
 			<label>
 				<input type="radio" name="weapontype" value="primary" />
 				<span>Primary Weapons</span>
@@ -240,7 +253,7 @@
 			<input type="radio" name="weapontype" value="NRT" style="display: none;" checked="checked" />
 		</div>	
 
-		<div class="input-container" id="primaryweapons" style="display: none; z-index: 9;">
+		<div class="input-container" id="primaryweapons" style="display: none; z-index: 9; margin-left: 200px;">
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Scout Rifle" />
 				<span>Scout Rifle</span>
@@ -279,7 +292,7 @@
 			<input type="radio" name="primaryweaponradios" value="NRP" style="display: none;" checked="checked" />
 		</div>
 
-		<div class="input-container" id="specialweapons" style="display: none; z-index: 9;">
+		<div class="input-container" id="specialweapons" style="display: none; z-index: 9; margin-left: 200px;">
 			<label>
 				<input type="radio" name="specialweaponradios" value="Shotgun" />
 				<span>Shotgun</span>
@@ -308,7 +321,7 @@
 			<input type="radio" name="specialweaponradios" value="NRS" style="display: none;" checked="checked" />
 		</div>
 
-		<div class="input-container" id="heavyweapons" style="display: none; z-index: 9;">	
+		<div class="input-container" id="heavyweapons" style="display: none; z-index: 9; margin-left: 200px;">	
 			<label>
 				<input type="radio" name="heavyweaponradios" value="Linear Fusion Rifle"/>
 				<span>Linear Fusion Rifle</span>
@@ -339,8 +352,13 @@
 		</div>
 
 		<div id="primaryouter" style="position: relative; z-index: 4;">
-			<div id="scoutrifles" style="display: none; z-index: 3">
-				{{ pwd["Scout Rifle"] }}
+			<div id="scoutrifles" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Scout Rifle"].items() %}
+					<div style="display: flex; margin-left: 140px; border: 3px double yellow;">
+						<img src={{ weapon_info.icon }}>
+						<div class="weaponContainer" style="margin-left: 50px;"> Name: {{ weapon_name }} Progress: [{{weapon_info.progress}}/{{weapon_info.completionValue}}] </div>
+					</div>
+				{% endfor %}
 			</div>
 			<div id="pulserifles" style="display: none; z-index: 3">
 				{{ pwd["Pulse Rifle"] }}
@@ -397,6 +415,5 @@
 				{{ pwd["Machine Gun"] }}
 			</div>
 		</div>
-	
 	</pageCenter>
 </body>

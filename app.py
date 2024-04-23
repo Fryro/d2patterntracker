@@ -320,8 +320,17 @@ def get_patterns():
                 display_str += " NOT COMPLETED "
             display_str += f"{weapon}  Patterns: [{patterninfo['progress']}/{patterninfo['completionValue']}]<br>"
     """
-
-    return render_template("patterntracker.html", pwd=pattern_weapons_by_type) 
+    
+    pwd = {}
+    for weapon_type,weapons in pattern_weapons_by_type.items():
+        pwd[str(weapon_type)] = {}
+        for weapon_name,weapon_info in weapons.items():
+            pwd[str(weapon_type)][str(weapon_name)] = {key:weapon_info[key] for key in ['icon-url', 'completionValue', 'progress']}
+            pwd[str(weapon_type)][str(weapon_name)]['name'] = str(weapon_name) 
+            pwd[str(weapon_type)][str(weapon_name)]['icon'] = pwd[str(weapon_type)][str(weapon_name)].pop('icon-url')  
+            pwd[str(weapon_type)][str(weapon_name)]['percentage'] = round((weapon_info['progress'] / weapon_info['completionValue']) * 100)
+             
+    return render_template("patterntracker.html", pwd=pwd)#pattern_weapons_by_type) 
     #return (display_str)
     
 @app.route("/search/<string:box>")
