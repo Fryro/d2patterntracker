@@ -10,6 +10,7 @@ import sys
 import subprocess
 import sqlite3
 import pickle
+import datetime
 
 app = Flask(__name__)
 app.secret_key = "imnotsureifthisneedstobesecuretheresnosensitivedatahere"
@@ -291,7 +292,8 @@ def index():
             else:
                 continue
         return ("Account Not Found")
-    return render_template("index.html")
+    currenttime = datetime.datetime.now()
+    return render_template("index.html", currenttime = currenttime)
 
 
 
@@ -330,6 +332,7 @@ def get_patterns():
             pwd[str(weapon_type)][str(weapon_name)]['icon'] = pwd[str(weapon_type)][str(weapon_name)].pop('icon-url')  
             pwd[str(weapon_type)][str(weapon_name)]['percentage'] = round((weapon_info['progress'] / weapon_info['completionValue']) * 100)
              
+    currenttime = datetime.datetime.now()
     return render_template("patterntracker.html", pwd=pwd)#pattern_weapons_by_type) 
     #return (display_str)
     
