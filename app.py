@@ -177,6 +177,7 @@ Driving Code (Entrypoint)
 """
 # This section attempts to open a json file, which contains API secrets.
 # If it cannot, 'j' remains 'None' and the program will exit.
+debug = False
 j = None
 try:
     with open("./bungieapi.json", "r") as f:

@@ -1,294 +1,297 @@
 <!DOCTYPE html>
+
 <head>
-  <style>
-	body {
-		background-image: url('https://nicks-blog.woofbit.com/images/destiny2background.jpg');
-		background-size: cover;
-	}
+	<style>
+		body {
+			background-color: rgb(45, 56, 63);
+			color: white;
 
-    pageCenter {
-		position: absolute; 
-		width: 1000px;
-		height: 500px;
-		z-index: 15;
-		top: 30%;
-		left: 25%;
-		margin: -100px 0 0 -150px;
-		text-align: center;
-		line-height: 40px;
-		backdrop-filter: blur(20px);
-		padding: 50px;
-		border: 4px double black;
-		justify-content: space-between;
-	}
+		}
 
-	weaponContainer {
-		margin-left: 140px;
-		position: relative;
-		width: 85%;
-		height: 10%;
-		text-align: center;
-		backdrop-filter: blur(20px);
-		border: 2px double yellow;
-		justify-content: space-between;
-		display: flex;
-	}
-	
-	.input-container {
-		position: absolute;
-		display: flex;
-	}
+		.weapon {
+			display: inline-block;
+		}
 
-	input {
-		position: absolute;
-		opacity: 0;
-		width: 0;
-		height: 0;
-	}
+		.content {
+			position: absolute;
+			width: 1000px;
+			height: 500px;
+			z-index: 15;
+			top: 10%;
+			left: 25%;
+			margin: -100px 0 0 -150px;
+			text-align: center;
+			line-height: 40px;
+			padding: 50px;
+			justify-content: space-between;
+		}
 
-	input:checked + span {
-		background-color: #000;
-		color: #fff;
-	}
+		weaponContainer {
+			margin-left: 140px;
+			position: relative;
+			width: 85%;
+			height: 10%;
+			top: 10%;
+			text-align: center;
+			backdrop-filter: blur(20px);
+			border: 2px double yellow;
+			justify-content: space-between;
+			display: flex;
+		}
 
-	span {
-		display: flex;
-		justify-content: center;
-		align-items: center;
-		width: 100px;
-		height: 80px;
-		border: 1px solid #000;
-		border-right: 0;
-		background-color: #fff;
-		cursor: pointer;
-		font-size: 12px;
-		line-height: 13px;
-	}
+		.input-container {
+			position: absolute;
+			display: flex;
+		}
 
-	label:last-of-type span {
-		border-right: 1px solid #000;
-	}
+		input {
+			position: absolute;
+			opacity: 0;
+			width: 0;
+			height: 0;
+		}
 
-  </style>
+		input:checked+span {
+			background-color: darkgray;
+			color: #fff;
+		}
 
-  <script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
-  <script>
-	$(document).ready(function() {
-		$("input[name='weapontype']").click(function() {
-			if ($(this).attr('value') == "primary") {
-				$('#primaryweapons').fadeIn(400);
-				$('#primaryouter').fadeIn(400);
-			}
-			else {
-				$('#primaryweapons').fadeOut(200);
-				$('#primaryouter').fadeOut(200);
-			}
-			if ($(this).attr('value') == "special") {
-				$('#specialweapons').fadeIn(400);
-				$('#specialouter').fadeIn(400);
-			}
-			else {
-				$('#specialweapons').fadeOut(200);
-				$('#specialouter').fadeOut(200);
-			}
-			if ($(this).attr('value') == "heavy") {
-				$('#heavyweapons').fadeIn(400);
-				$('#heavyouter').fadeIn(400);
-			}
-			else {
-				$('#heavyweapons').fadeOut(200);
-				$('#heavyouter').fadeOut(200);
-			}
+		span {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100px;
+			height: 80px;
+			border: 1px solid white;
+			background-color: grey;
+			cursor: pointer;
+			font-size: 12px;
+			line-height: 13px;
+		}
+	</style>
+
+	<script src="https://ajax.googleapis.com/ajax/libs/jquery/2.1.3/jquery.min.js"></script>
+	<script>
+		$(document).ready(function () {
+			$("input[name='weapontype']").click(function () {
+				if ($(this).attr('value') == "primary") {
+					$('#primaryweapons').fadeIn(400);
+					$('#primaryouter').fadeIn(400);
+				}
+				else {
+					$('#primaryweapons').fadeOut(200);
+					$('#primaryouter').fadeOut(200);
+				}
+				if ($(this).attr('value') == "special") {
+					$('#specialweapons').fadeIn(400);
+					$('#specialouter').fadeIn(400);
+				}
+				else {
+					$('#specialweapons').fadeOut(200);
+					$('#specialouter').fadeOut(200);
+				}
+				if ($(this).attr('value') == "heavy") {
+					$('#heavyweapons').fadeIn(400);
+					$('#heavyouter').fadeIn(400);
+				}
+				else {
+					$('#heavyweapons').fadeOut(200);
+					$('#heavyouter').fadeOut(200);
+				}
+			});
 		});
-	});
-  </script>
-  
+	</script>
 
-  <script>
-	$(document).ready(function() {
-		$("input[name='primaryweaponradios']").click(function() {
-			if ($(this).attr('value') == "Scout Rifle") {
-				$('#scoutrifles').fadeIn(400);
-			}
-			else {
-				$('#scoutrifles').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Pulse Rifle") {
-				$('#pulserifles').fadeIn(400);
-			}
-			else {
-				$('#pulserifles').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Auto Rifle") {
-				$('#autorifles').fadeIn(400);
-			}
-			else {
-				$('#autorifles').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Hand Cannon") {
-				$('#handcannons').fadeIn(400);
-			}
-			else {
-				$('#handcannons').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Sidearm") {
-				$('#sidearms').fadeIn(400);
-			}
-			else {
-				$('#sidearms').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Submachine Gun") {
-				$('#submachineguns').fadeIn(400);
-			}
-			else {
-				$('#submachineguns').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Combat Bow") {
-				$('#combatbows').fadeIn(400);
-			}
-			else {
-				$('#combatbows').fadeOut(200);
-			}
+	<script>
+		$(document).ready(function () {
+			$("input[name='primaryweaponradios']").click(function () {
+				if ($(this).attr('value') == "Scout Rifle") {
+					$('#scoutrifles').fadeIn(400);
+				}
+				else {
+					$('#scoutrifles').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Pulse Rifle") {
+					$('#pulserifles').fadeIn(400);
+				}
+				else {
+					$('#pulserifles').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Auto Rifle") {
+					$('#autorifles').fadeIn(400);
+				}
+				else {
+					$('#autorifles').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Hand Cannon") {
+					$('#handcannons').fadeIn(400);
+				}
+				else {
+					$('#handcannons').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Sidearm") {
+					$('#sidearms').fadeIn(400);
+				}
+				else {
+					$('#sidearms').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Submachine Gun") {
+					$('#submachineguns').fadeIn(400);
+				}
+				else {
+					$('#submachineguns').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Combat Bow") {
+					$('#combatbows').fadeIn(400);
+				}
+				else {
+					$('#combatbows').fadeOut(200);
+				}
+			});
 		});
-	});
-  </script>
+	</script>
 
-
-  <script>
-	$(document).ready(function() {
-		$("input[name='specialweaponradios']").click(function() {
-			if ($(this).attr('value') == "Shotgun") {
-				$('#shotguns').fadeIn(400);
-			}
-			else {
-				$('#shotguns').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Sniper Rifle") {
-				$('#sniperrifles').fadeIn(400);
-			}
-			else {
-				$('#sniperrifles').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Fusion Rifle") {
-				$('#fusionrifles').fadeIn(400);
-			}
-			else {
-				$('#fusionrifles').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Grenade Launcher") {
-				$('#grenadelaunchers').fadeIn(400);
-			}
-			else {
-				$('#grenadelaunchers').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Trace Rifle") {
-				$('#tracerifles').fadeIn(400);
-			}
-			else {
-				$('#tracerifles').fadeOut(200);
-			}
+	<script>
+		$(document).ready(function () {
+			$("input[name='specialweaponradios']").click(function () {
+				if ($(this).attr('value') == "Shotgun") {
+					$('#shotguns').fadeIn(400);
+				}
+				else {
+					$('#shotguns').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Sniper Rifle") {
+					$('#sniperrifles').fadeIn(400);
+				}
+				else {
+					$('#sniperrifles').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Fusion Rifle") {
+					$('#fusionrifles').fadeIn(400);
+				}
+				else {
+					$('#fusionrifles').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Grenade Launcher") {
+					$('#grenadelaunchers').fadeIn(400);
+				}
+				else {
+					$('#grenadelaunchers').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Trace Rifle") {
+					$('#tracerifles').fadeIn(400);
+				}
+				else {
+					$('#tracerifles').fadeOut(200);
+				}
+			});
 		});
-	});
-  </script>
+	</script>
 
-  
-  <script>
-	$(document).ready(function() {
-		$("input[name='heavyweaponradios']").click(function() {
-			if ($(this).attr('value') == "Linear Fusion Rifle") {
-				$('#linearfusionrifles').fadeIn(400);
-			}
-			else {
-				$('#linearfusionrifles').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Rocket Launcher") {
-				$('#rocketlaunchers').fadeIn(400);
-			}
-			else {
-				$('#rocketlaunchers').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Sword") {
-				$('#swords').fadeIn(400);
-			}
-			else {
-				$('#swords').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Grenade Launcher") {
-				$('#grenadelaunchers').fadeIn(400);
-			}
-			else {
-				$('#grenadelaunchers').fadeOut(200);
-			}
-			if ($(this).attr('value') == "Machine Gun") {
-				$('#machineguns').fadeIn(400);
-			}
-			else {
-				$('#machineguns').fadeOut(200);
-			}
+	<script>
+		$(document).ready(function () {
+			$("input[name='heavyweaponradios']").click(function () {
+				if ($(this).attr('value') == "Linear Fusion Rifle") {
+					$('#linearfusionrifles').fadeIn(400);
+				}
+				else {
+					$('#linearfusionrifles').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Rocket Launcher") {
+					$('#rocketlaunchers').fadeIn(400);
+				}
+				else {
+					$('#rocketlaunchers').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Sword") {
+					$('#swords').fadeIn(400);
+				}
+				else {
+					$('#swords').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Grenade Launcher") {
+					$('#grenadelaunchers').fadeIn(400);
+				}
+				else {
+					$('#grenadelaunchers').fadeOut(200);
+				}
+				if ($(this).attr('value') == "Machine Gun") {
+					$('#machineguns').fadeIn(400);
+				}
+				else {
+					$('#machineguns').fadeOut(200);
+				}
+			});
 		});
-	});
-  </script>
+	</script>
 
 </head>
 
 
 <body>
-	<pageCenter>
-		<div class="input-container" style="z-index: 10; display: block; height: 50%;">
+	<div class="content">
+		<h1>Weapon Patterns</h1>
+		<div class="input-container" style="z-index: 10; display: block; height: 50%; margin-top: 100px;">
 			<label>
-				<input type="radio" name="weapontype" value="primary" />
-				<span>Primary Weapons</span>
+				<input type="radio" name="weapontype" value="primary" checked="checked"/>
+				<span>
+					<img src="/static/ammo-primary.svg">
+				</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="weapontype" value="special" />
-				<span>Special Weapons</span>
+				<span>
+					<img src="/static/ammo-special.svg">
+				</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="weapontype" value="heavy" />
-				<span>Heavy Weapons</span>
+				<span>
+					<img src="/static/ammo-heavy.svg">
+				</span>
 			</label>
-			
-			<input type="radio" name="weapontype" value="NRT" style="display: none;" checked="checked" />
-		</div>	
 
-		<div class="input-container" id="primaryweapons" style="display: none; z-index: 9; margin-left: 200px;">
+			<input type="radio" name="weapontype" value="NRT" style="display: none;" checked="checked" />
+		</div>
+
+		<div class="input-container" id="primaryweapons" style="display: none; z-index: 9; margin-left: 200px">
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Scout Rifle" />
 				<span>Scout Rifle</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Pulse Rifle" />
 				<span>Pulse Rifle</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Auto Rifle" />
 				<span>Auto Rifle</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Hand Cannon" />
 				<span>Hand Cannon</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Sidearm" />
 				<span>Sidearm</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Submachine Gun" />
 				<span>Submachine Gun</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="primaryweaponradios" value="Combat Bow" />
 				<span>Combat Bow</span>
 			</label>
-			
+
 			<input type="radio" name="primaryweaponradios" value="NRP" style="display: none;" checked="checked" />
 		</div>
 
@@ -297,123 +300,270 @@
 				<input type="radio" name="specialweaponradios" value="Shotgun" />
 				<span>Shotgun</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="specialweaponradios" value="Sniper Rifle" />
 				<span>Sniper Rifle</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="specialweaponradios" value="Fusion Rifle" />
 				<span>Fusion Rifle</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="specialweaponradios" value="Grenade Launcher" />
 				<span>Grenade Launcher</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="specialweaponradios" value="Trace Rifle" />
 				<span>Trace Rifle</span>
 			</label>
-			
+
 			<input type="radio" name="specialweaponradios" value="NRS" style="display: none;" checked="checked" />
 		</div>
 
-		<div class="input-container" id="heavyweapons" style="display: none; z-index: 9; margin-left: 200px;">	
+		<div class="input-container" id="heavyweapons" style="display: none; z-index: 9; margin-left: 200px;">
 			<label>
-				<input type="radio" name="heavyweaponradios" value="Linear Fusion Rifle"/>
+				<input type="radio" name="heavyweaponradios" value="Linear Fusion Rifle" />
 				<span>Linear Fusion Rifle</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="heavyweaponradios" value="Rocket Launcher" />
 				<span>Rocket Launcher</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="heavyweaponradios" value="Sword" />
 				<span>Sword</span>
 			</label>
-			
+
 			<label>
-				<input type="radio" name="heavyweaponradios" value="Grenade Launcher"/>
+				<input type="radio" name="heavyweaponradios" value="Grenade Launcher" />
 				<span>Grenade Launcher</span>
 			</label>
-			
+
 			<label>
 				<input type="radio" name="heavyweaponradios" value="Machine Gun" />
 				<span>Machine Gun</span>
 			</label>
-			
-			<input type="radio" name="heavyweaponradios" value="NRH" style="display: none;" checked="checked" />
 
+			<input type="radio" name="heavyweaponradios" value="NRH" style="display: none;" checked="checked" />
 		</div>
 
 		<div id="primaryouter" style="position: relative; z-index: 4;">
 			<div id="scoutrifles" style="display: none; z-index: 3; margin-top: 100px;">
 				{% for weapon_name,weapon_info in pwd["Scout Rifle"].items() %}
-					<div style="display: flex; margin-left: 140px; border: 3px double yellow;">
-						<img src={{ weapon_info.icon }}>
-						<div class="weaponContainer" style="margin-left: 50px;"> Name: {{ weapon_name }} Progress: [{{weapon_info.progress}}/{{weapon_info.completionValue}}] </div>
+				<div class="weapon" style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}] 
 					</div>
+				</div>
 				{% endfor %}
 			</div>
-			<div id="pulserifles" style="display: none; z-index: 3">
-				{{ pwd["Pulse Rifle"] }}
+
+			<div id="pulserifles" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Pulse Rifle"].items() %}
+				<div class="weapon" style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="autorifles" style="display: none; z-index: 3">
-				{{ pwd["Auto Rifle"] }}
+			<div id="autorifles" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Auto Rifle"].items() %}
+				<div class="weapon" style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="handcannons" style="display: none; z-index: 3">
-				{{ pwd["Hand Cannon"] }}
+			<div id="handcannons" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Hand Cannon"].items() %}
+				<div class="weapon" style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="sidearms" style="display: none; z-index: 3">
-				{{ pwd["Sidearm"] }}
+			<div id="sidearms" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Sidearm"].items() %}
+				<div class="weapon" style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}] 
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="submachineguns" style="display: none; z-index: 3">
-				{{ pwd["Submachine Gun"] }}
+			<div id="submachineguns" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Submachine Gun"].items() %}
+				<div class="weapon" style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="combatbows" style="display: none; z-index: 3">
-				{{ pwd["Combat Bow"] }}
+			<div id="combatbows" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Combat Bow"].items() %}
+				<div class="weapon" style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
 
 		<div id="specialouter" style="position: relative; z-index: 4;">
-			<div id="shotguns" style="display: none; z-index: 3">
-				{{ pwd["Shotgun"] }}
+			<div class="weapon" id="shotguns" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Shotgun"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="sniperrifles" style="display: none; z-index: 3">
-				{{ pwd["Sniper Rifle"] }}
+			<div class="weapon" id="sniperrifles" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Sniper Rifle"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="fusionrifles" style="display: none; z-index: 3">
-				{{ pwd["Fusion Rifle"] }}
+			<div class="weapon" id="fusionrifles" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Fusion Rifle"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}] 
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="grenadelaunchers" style="display: none; z-index: 3">
-				{{ pwd["Grenade Launcher"] }}
+			<div class="weapon" id="grenadelaunchers" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Grenade Launcher"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="tracerifles" style="display: none; z-index: 3">
-				{{ pwd["Trace Rifle"] }}
+			<div class="weapon" id="tracerifles" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Trace Rifle"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
 
 		<div id="heavyouter" style="position: relative; z-index: 4;">
-			<div id="linearfusionrifles" style="display: none; z-index: 3">
-				{{ pwd["Linear Fusion Rifle"] }}
+			<div class="weapon" id="linearfusionrifles" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Linear Fusion Rifle"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="rocketlaunchers" style="display: none; z-index: 3">
-				{{ pwd["Rocket Launcher"] }}
+			<div class="weapon" id="rocketlaunchers" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Rocket Launcher"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="swords" style="display: none; z-index: 3">
-				{{ pwd["Sword"] }}
+			<div class="weapon" id="swords" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Sword"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="grenadelaunchers" style="display: none; z-index: 3">
-				{{ pwd["Grenade Launcher"] }}
+			<div class="weapon" id="grenadelaunchers" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Grenade Launcher"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
-			<div id="machineguns" style="display: none; z-index: 3">
-				{{ pwd["Machine Gun"] }}
+			<div class="weapon" id="machineguns" style="display: none; z-index: 3; margin-top: 100px;">
+				{% for weapon_name,weapon_info in pwd["Machine Gun"].items() %}
+				<div style="display: flex; margin-left: 140px; border: 3px single white;">
+					<img src={{ weapon_info.icon }}>
+					<br>
+					<div class="weaponContainer" style="margin-left: 50px;">
+						{{ weapon_name }}
+						[{{weapon_info.progress}}/{{weapon_info.completionValue}}]
+					</div>
+				</div>
+				{% endfor %}
 			</div>
 		</div>
-	</pageCenter>
+	</div>
 </body>
